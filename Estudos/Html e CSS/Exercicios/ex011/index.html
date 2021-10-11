@@ -7,13 +7,23 @@
     <title>Imagens dinamicas</title>
 </head>
 <body>
-    <h1>Imagens dinâmivcas</h1>
+    <h1>Imagens dinâmicas</h1>
     <p>Tente abrir esse site em varios despositivos ou simplesmente diminua e almente a janela do navegador</p>
     <picture>
         <source media="(max-width: 750px )" srcset="imagens/foto-p.png" type="image/png">
         <source media="(max-width: 1050px )" srcset="imagens/foto-m.png" type="image/png">
         <img src="imagens/foto-g.png" alt="imagem dinâmivca">
     </picture>
+    <h1>Reproduzindo áudios</h1>
+    <p>
+        vamos aprender a reproduzir áudios em HTML5 <br>
+        <!--<audio src="audios/Lobo Loco - Super String Theory (ID 474) - Remastered.mp3" controls></audio>-->
+        <audio preload="metadata" controls>
+            <source src="audios/Lobo Loco - Super String Theory (ID 474) - Remastered.mp3" type="audio/mpeg">
+            <p>infelismente seunavegador não é compativel com o audio mp3 mas voce pode baixar o arquivo por <a href="audios/Lobo Loco - Super String Theory (ID 474) - Remastered.mp3">aqui</a></p>
+
+        </audio>
+    </p>
     
 </body>
 </html>
