@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a{
+            color: aqua;
+            text-decoration: none;
+        }
+
+        a:visited{
+            color: rgb(160, 160, 0);
+        }
+
+        a:hover{
+            text-decoration: underline;
+            color: black;
+        }
+
+        a:active{
+            color: blue;
+        }
+
+        .especial{
+            background-color: #ad09004d;
+        }
+
+        .especial::before{
+            color: chartreuse;
+            content: '✬ ';
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .especial::after{
+            color: chartreuse;
+            content: ' ✬';
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Personalizado Links</h1>
+    <ul>
+        <li><a href="https://github.com/Israel97f" target="_blank" rel="external" class="especial">Github</a></li>
+        <li><a href="https://color.adobe.com/pt/create/color-wheel" target="_blank" rel="external">Adobe color</a></li>
+        <li><a href="https://www.whatfontis.com/" target="_blank" rel="external">What is fonts</a></li>
+    </ul>
+    
+</body>
+</html>
