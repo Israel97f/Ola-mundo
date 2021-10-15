@@ -46,15 +46,18 @@ header > h1{
     font-size: 3em;
     font-family: var(--fonte-destaque);
     text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.37);
+    font-style: normal;
 }
 
 header > p{
+    color: rgba(255, 255, 255, 0.692);
     font-size: 1.2em;
     max-width: 500px;
     margin: auto;
     text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.315);
     padding-left: 10px;
     padding-right: 10px;
+    margin-bottom: 30px;
 }
 
 nav{
@@ -67,10 +70,10 @@ nav{
 nav > a{
 
     font-weight: bold;
-    color: white;
+    color: var(--cor1);
     padding: 10px;
     text-decoration: none;
-    margin-left: 20px;
+    margin-left: 10px;
     border-radius: 5px;
     transition-duration: 0.5s;
 
@@ -119,6 +122,10 @@ main a:hover{
     text-decoration: underline;
 }
 
+a.externo::after{
+    content: '\00A0\1F517';
+}
+
 main img{
     width: 100%;
 }
@@ -126,6 +133,7 @@ main img{
 main h1{
     font-family: var(--fonte-androide);
     color: var(--cor5);
+    font-size: 2em;
 }
 
 main h2{
@@ -133,12 +141,63 @@ main h2{
     color: var(--cor4);
     background-image: linear-gradient(to right, var(--cor2),  transparent);
     text-indent: 10px;
-    font-size: 1.3em;
+    font-size: 1.8em;
+}
+
+div.video{
+    background-color: var(--cor5);
+    padding: 15px;
+    margin: 10px -10px 10px -10px;
+    position: relative;
+    padding-bottom: 58%;
+}
+
+div.video iframe{
+    position: absolute;
+    top: 6%;
+    left: 5%;
+    width: 90%;
+    height: 87%;
 }
 
 footer{
     background-color: var(--cor5);
     color: white;
+    text-align: center;
+    padding: 5px;
+    font-size: 0.8em;
+}
+
+footer a{
+    text-decoration: none;
+    color: white;
+
+}
+
+aside{
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.288);
+    background-color: var(--cor1);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+aside h3{
+    margin: -10px -10px 0px -10px;
+    background-color: var(--cor5);
+    padding: 10px;
+    color: white;
+    border-radius: 10px 10px 0px 0px;
+}
+
+aside > ul{
+    columns: 2;
+    list-style-position: inside;
+    list-style-type: '\2714\00A0\00A0';
+}
+
+footer a:hover{
+    text-decoration: underline;
+    color: var(--cor0);
 }
 
 .pequena{
@@ -146,3 +205,4 @@ footer{
     display: block;
     margin: auto;
 }
+
