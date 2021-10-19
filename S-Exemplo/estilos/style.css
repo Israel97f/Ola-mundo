@@ -1,0 +1,133 @@
+@charset "UTF-8 ";
+
+
+:root{
+    --cor01: #000000;
+    --cor02: #302F2A;
+    --cor03: #494441;
+    --cor04: #5E6053;
+    --cor05: #c8c4c146;
+    --cor06: #0000004f;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-image: url("../imagens/space-outer-space-planet-atmosphere-astronomical-object-universe-1596852-pxhere.com\ \(1\).jpg");
+    background-attachment: fixed;
+}
+
+nav{
+    font-size: 1.4em;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    width: auto;
+}
+
+nav a{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 30px;
+    text-decoration: none;
+    color: white;
+    padding: 5px;
+}
+
+nav a:hover{
+    background-color: #00000034;
+    border-radius: 5px;
+    box-shadow: 3px 3px 7px var(--cor06);
+    transition: 0.5s;
+    
+}
+
+nav div div a{
+    display: none;
+}
+
+nav div a{
+    margin: 0px;
+}
+
+nav div:hover div a{
+    display: inline-block;
+}
+
+nav div{
+    background-color: var(--cor06);
+    margin: auto;
+}
+header{
+    text-align: center;
+    color: white;
+    min-height: 800px;
+    border-bottom: 1px solid black;
+}
+
+header > h1{
+    margin: 220px auto;
+    padding: 10px;
+}
+
+main{
+    box-shadow: 3px 3px 6px var(--cor06);
+    margin: auto;
+    max-width: 800px;
+}
+
+p{
+    background-color: var(--cor05);
+    text-align: justify;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 1.5em;
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+aside{
+    min-height: 600px;
+    background-color: #00000034;
+    max-width: 800px;
+    margin: 0px auto;
+    padding: 5px;
+}
+
+main div{
+    background-color: var(--cor04);
+    display: inline-block;
+    max-width: 450px;
+    max-height: 600px;
+    min-width: 210px;
+    padding: 10px;
+    line-height: 1.5em;
+    text-align: justify;
+    margin: 5px 5px 5px 40.5px;
+    border-radius: 5px;  
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.274);
+}
+
+main div.short{
+    max-width: 200px;
+    margin-right: 40.5px;
+    margin-left: 0px;
+}
+
+footer{
+    background-color: black;
+    height: 150px;
+    padding-top: 5px;
+    margin-top: 30px;
+}
+
+footer > p{
+    background-color: black;
+    color: white;
+    font-size: 0.8em;
+    text-align: center;
+    margin: 70px auto 0px auto;
+    padding: 0;
+}
