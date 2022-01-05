@@ -69,12 +69,27 @@ section > p.margen{
 section.imagen {
     background-color: rgb(46, 46, 46);
     color: white;
+    box-shadow: inset 6px 6px 13px 0px rgba(0, 0, 0, 0.308);
+    background-attachment: fixed;
 }
+
 
 section.imagen > p {
     display: inline-block;
     padding: 6px;
     background-color: rgba(0, 0, 0, 0.26);
+    text-shadow: 1px 2px 0px black;
+}
+
+section#imagen01{
+    background-image: url(imagens/background001.jpg);
+    background-size: cover;
+    background-position: center right;
+}
+
+section#imagen02{
+    background-image: url(imagens/background002.jpg);
+    background-size: cover;
 }
 
 footer {
