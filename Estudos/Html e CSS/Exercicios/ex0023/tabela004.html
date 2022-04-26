@@ -5,18 +5,73 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tabela 4</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        caption{
+            font-size: 1.3em;
+            font-weight: bold;
+            padding: 10px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            
+        }
+    </style>
 </head>
 <body>
     <table>
+        <caption>
+            Filmes Favoritos
+        </caption>
         <thead>
             <tr>
                 <th>Grupos</th>
                 <th>Nomes</th>
-                <th>Filmes</th>
+                <th colspan="3">Filmes</th>
             </tr>
         </thead>
         <tbody>
-
+            <tr>
+                <th rowspan="3">Mulheres</th>
+                <td>Ana Maria Santos</td>
+                <td>Alien</td>
+                <td>Rambo</td>
+                <td>Vingadores</td>
+            </tr>
+            <tr>
+                <td>Beatriz Souza</td>
+                <td>Hulk</td>
+                <td>Inception</td>
+                <td>Batmam</td>
+            </tr>
+            <tr>
+                <td>Claudia Melo</td>
+                <td>Obllivion</td>
+                <td>Matrix</td>
+                <td>Big Hero</td>
+            </tr>
+            <tr>
+                <th rowspan="3">Homens</th>
+                <td>Buno Mendonça</td>
+                <td>Intocáveis</td>
+                <td>Aminésia</td>
+                <td>Gladiador</td>
+            </tr>
+            <tr>
+                <td>Daniel Lorenço</td>
+                <td>Wall-E</td>
+                <td>Old-boy</td>
+                <td>Dangal</td>
+            </tr>
+            <tr>
+                <td>Fabiano Mota</td>
+                <td>Satr Wars 5</td>
+                <td>Taxi Drive</td>
+                <td>Toy Story</td>
+            </tr>
         </tbody>
     </table>    
 </body>
