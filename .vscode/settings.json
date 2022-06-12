@@ -1,3 +1,4 @@
 {
-    "cSpell.language": "pt"
+    "cSpell.language": "pt",
+    "Lua.telemetry.enable": false
 }
