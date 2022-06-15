@@ -10,4 +10,10 @@
  Area = tonumber(io.read())
 
  -- processa os dados
- 
+ Latas = (Area / 3) // 18
+ if (Area / 3) % 18 ~= 0 then Latas = Latas + 1 end
+ Pre = Latas * 80 
+
+ -- Mostra os dados
+ print("Deve ser compradas " .. tostring(Latas) .. " latas de tinta")
+ print("O custo de " .. tostring(Latas) .. " latas de tinta é R$ " .. tostring(Pre))
