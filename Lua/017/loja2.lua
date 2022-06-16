@@ -14,7 +14,7 @@
  -- Pega a área fornecida pelo usuário 
  io.write("Digite a área a ser pintada: ")
  Area = tonumber(io.read())
-
+ 
  -- processando os dados
  Litros = Area / 6
  if Litros % 18 ~= 0 then
@@ -31,17 +31,15 @@
  end
  Pre2 = Galoes * 25
 
- Litros = Litros * 1.1  -- aumenta em 10% o quantidade de litros
+ Litros = Litros * 110 / 100  -- aumenta em 10% o quantidade de litros
  NLa = Litros // 18
  NGa = (Litros % 18) // 3.6 
- print(Litros)
- if (Litros % 18 * 10) % 36 == 0 then
+
+ if (Litros % 18 ) % 3.6 == 0 then
     Pre3 = NLa * 80 + NGa * 25
-    print(1)
  else
     NGa = NGa + 1
     Pre3 = NLa * 80 + (NGa) * 25
-    print(2)
  end
 
  -- Exibe os dados para o usuário
