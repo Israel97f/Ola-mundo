@@ -24,21 +24,24 @@
  end
  Pre1 = Latas * 80
 
- if Litros % 3.6 ~= 0 then
+ if Litros * 10 % 36 ~= 0 then -- resto da divisão retornando 3.6 ao invés de 0
     Galoes = Litros // 3.6 + 1
  else
-    Galoes = Latas // 3.6
+    Galoes = Litros // 3.6
  end
  Pre2 = Galoes * 25
 
  Litros = Litros * 1.1  -- aumenta em 10% o quantidade de litros
  NLa = Litros // 18
- NGa = Litros % 18 // 3.6 
- if Litros % 18 % 3.6 == 0 then
+ NGa = (Litros % 18) // 3.6 
+ print(Litros)
+ if (Litros % 18 * 10) % 36 == 0 then
     Pre3 = NLa * 80 + NGa * 25
+    print(1)
  else
     NGa = NGa + 1
     Pre3 = NLa * 80 + (NGa) * 25
+    print(2)
  end
 
  -- Exibe os dados para o usuário
