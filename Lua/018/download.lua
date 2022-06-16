@@ -16,3 +16,4 @@
  
  -- exibe o tempo calculado para o usuário
  print("O tempo de download do arquivo com tamanho de " .. tostring(Arquivo) .. " MB é " ..tostring(Tempo) .. " min") 
+    
