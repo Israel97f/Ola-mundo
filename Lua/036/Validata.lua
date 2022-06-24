@@ -20,7 +20,7 @@
         bissexto = false
     end
     -- define o ultimo dia valido de cada mês
-    if string.sub("04 06 09 11", tostring(mes)) ~= nil then
+    if string.match("04 06 09 11", tostring(mes)) ~= nil then
         DiaLimite = 30
     else
         DiaLimite = 31
@@ -33,7 +33,6 @@
             end
         end 
     end
-
 
     if dia <= DiaLimite and dia > 0 and mes <= 12 and mes > 0 then
         Mensagem = "Data valida"        
