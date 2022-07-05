@@ -8,8 +8,14 @@
  N2 = tonumber(io.read())
 
  -- exibe os números compreendidos num intervalo definido
- for i = N1 + 1, N2 - 1, 1 do
+ Maior = N1
+ Menor = N2
+ if N2 >= Maior then
+    Maior = N2
+    Menor = N1
+ end
+
+ for i = Menor + 1, Maior - 1, 1 do
     io.write(i .. " ")
  end
  print('')
- 
