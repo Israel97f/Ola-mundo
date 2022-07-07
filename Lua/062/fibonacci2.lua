@@ -18,5 +18,9 @@
  -- exibe a sequencia (opi)
  io.write("A sequência gerada é: ")
  for i, j in pairs(Fibonacci) do
-    io.write(j .. ", ")
+    if j < 500 then
+        io.write(j .. ", ")
+    else
+        print(j)
+    end
  end
