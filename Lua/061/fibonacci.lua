@@ -37,4 +37,3 @@
     io.write(j .. " ")
  end
  print("")
- 
