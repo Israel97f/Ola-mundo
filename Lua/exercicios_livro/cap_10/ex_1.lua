@@ -1,3 +1,6 @@
+-- Modifique o programa das oito rainhas a fim de que ele pare depois de imprimir a primeira
+-- solução.
+
 local N = 8
 -- tamanho do tabuleiro
 -- verifica se a posição (n,c) está livre de ataques
@@ -29,7 +32,7 @@ local function printsolution (a)
     io.write("\n")
 end
 
--- adiciona ao tabuleiro 'a' todas as rainhas de 'n' a 'N'
+--[[ adiciona ao tabuleiro 'a' todas as rainhas de 'n' a 'N' - original
 local function addqueen (a, n)
     if n > N then
         -- todas as rainhas foram posicionadas?
@@ -44,5 +47,28 @@ local function addqueen (a, n)
         end
     end
 end
+--]]
+
+---[[ adiciona ao tabuleiro 'a' todas as rainhas de 'n' a 'N' Modificado
+local function addqueen (a, n)
+    if n > N then
+        -- todas as rainhas foram posicionadas?
+        printsolution(a)
+        coroutine.yield()
+    else -- tenta posicionar a n-ésima rainha
+        for c = 1, N do
+            if isplaceok(a, n, c) then
+                a[n] = c
+                -- posiciona a n-ésima rainha na coluna 'c'
+                addqueen(a, n + 1)
+            end
+        end
+    end
+end
+--]]
+
+
+local co = coroutine.create(addqueen)
+
 -- executa o programa
-addqueen({}, 1)
+coroutine.resume(co, {}, 1)
