@@ -3,8 +3,10 @@
 
 local N = 8
 -- tamanho do tabuleiro
+local contador = 0 -- conta quantas vezes isplaceok foi chamada
 -- verifica se a posição (n,c) está livre de ataques
 local function isplaceok (a, n, c)
+    contador = contador + 1
     for i = 1, n - 1 do
         -- para cada rainha já posicionada
         if (a[i] == c) or
@@ -72,3 +74,5 @@ local co = coroutine.create(addqueen)
 
 -- executa o programa
 coroutine.resume(co, {}, 1)
+--addqueen({}, 1)
+print(contador)
