@@ -65,5 +65,5 @@ end
 print("existe um total de soluções:", cont)
 print("existe um total de permutações:", #T)
 
--- o metodo original do ex_1 chama isplaceok 15720 vezes enquanto o número
+-- o método original do ex_1 chama isplaceok 15720 vezes enquanto o número
 -- de permutações foi 40320.
