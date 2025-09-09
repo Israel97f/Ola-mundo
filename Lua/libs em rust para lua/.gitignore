@@ -1,0 +1,36 @@
+# Arquivos e diretórios gerados pelo Cargo
+**/target/
+**/*.rs.bk
+
+# Arquivos de build temporários
+Cargo.lock
+*.d
+*.rlib
+*.rmeta
+
+# Arquivos de log e debug
+*.log
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos de editor/IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Arquivos de testes ou exemplos gerados
+/tests/output/
+examples/output/
+
+# Ignorar binários e libs geradas
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Ignorar arquivos específicos de integração com Lua (se aplicável)
+*.luac
+*.lua~ 

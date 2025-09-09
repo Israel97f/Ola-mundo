@@ -1,0 +1,7 @@
+[package]
+name = "player_mp3"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+rodio = { version = "0.17", features = ["symphonia-mp3"] }

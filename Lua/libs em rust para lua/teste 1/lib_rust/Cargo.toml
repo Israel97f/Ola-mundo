@@ -1,0 +1,10 @@
+[package]
+name = "lib_rust"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["cdylib"] # Gera biblioteca compartilhada (.so)
+
+[dependencies]
+mlua = { version = "0.10", features = ["lua54", "module", "mlua_derive"] }
