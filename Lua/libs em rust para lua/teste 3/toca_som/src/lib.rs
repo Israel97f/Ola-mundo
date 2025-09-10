@@ -1,5 +1,5 @@
 use mlua::prelude::*;
-use rodio::{Decoder, OutputStream, Sink};
+use rodio::{Decoder, OutputStreamBuilder, Sink};
 use std::fs::File;
 use std::io::BufReader;
 use std::sync::Arc;
@@ -9,12 +9,12 @@ fn tocador_de_sons(_: &Lua, str_: LuaString) -> LuaResult<()> {
     let path = str_.to_str()?.to_owned(); // transforma &str em String
 
     // Cria uma saída de áudio padrão
-    let (_stream, stream_handle) = OutputStream::try_default()
+    let stream_handle = OutputStreamBuilder::open_default_stream()
         .map_err(|e| LuaError::ExternalError(Arc::new(e)))?;
 
     // Cria um reprodutor
-    let sink = Sink::try_new(&stream_handle)
-        .map_err(|e| LuaError::ExternalError(Arc::new(e)))?;
+    let sink = Sink::connect_new(&stream_handle.mixer());
+        //.map_err(|e| LuaError::ExternalError(Arc::new(e)))?;
 
     // Abre o arquivo MP3
     let file = File::open(path)
