@@ -1,0 +1,11 @@
+[package]
+name = "toca_som"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["cdylib"] # cria uma lib dinâmica
+
+[dependencies]
+mlua = { version = "0.11", features = ["lua54", "module", "mlua_derive"]}
+rodio = {version = "0.17", features = ["symphonia-mp3"]}
