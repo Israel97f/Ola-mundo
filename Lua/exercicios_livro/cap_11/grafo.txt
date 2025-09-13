@@ -1,11 +1,11 @@
-Parnaiba São_Bernado 777
-Belem Macapa 2
-Iapoqui Chui 3
-Timom Altmira 4
-Camaçari Canindé 5
-Cascavel Cachoeir 6
-Cascavel Altmira 7
-Parnaiba Timom 8
-Belem Altmir 9
-Iapoqui Belem 10
-Timom Iapoqui 11
+ Parnaiba São_Bernado 100 km
+ Belém Macapá 527 km
+ Itapeva Chui 1430 km
+ Timon Altamira 1970 km
+ Camaçari Canindé 2030 km
+ Cascavel Uiramutã 3000 km
+ Cascavel Altamira 2340 km
+ Parnaíba Timon 630 km
+ Belém Altamira 840 km
+ Itapeva Belém 2620 km
+ Timon Itapeva 2350 km
