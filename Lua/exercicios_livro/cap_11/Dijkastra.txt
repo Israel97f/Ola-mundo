@@ -1,0 +1,57 @@
+local function dijkstra(graph, start)
+    local dist = {}
+    local visited = {}
+    local previous = {}
+
+    -- Inicializa distâncias
+    for node, _ in pairs(graph) do
+        dist[node] = math.huge
+        visited[node] = false
+        previous[node] = nil
+    end
+    dist[start] = 0
+
+    while true do
+        -- Encontra o nó não visitado com menor distância
+        local minDist = math.huge
+        local current = nil
+        for node, d in pairs(dist) do
+            if not visited[node] and d < minDist then
+                minDist = d
+                current = node
+            end
+        end
+
+        if not current then break end
+        visited[current] = true
+
+        -- Atualiza distâncias dos vizinhos
+        for _, edge in ipairs(graph[current]) do
+            local neighbor = edge.target
+            local weight = edge.weight
+            local alt = dist[current] + weight
+            if alt < dist[neighbor] then
+                dist[neighbor] = alt
+                previous[neighbor] = current
+            end
+        end
+    end
+
+    return dist, previous
+end
+
+-- Exemplo de grafo
+local graph = {
+    A = { {target = "B", weight = 1}, {target = "C", weight = 4} },
+    B = { {target = "C", weight = 2}, {target = "D", weight = 5} },
+    C = { {target = "D", weight = 1} },
+    D = {}
+}
+
+-- Executa o algoritmo
+local dist, prev = dijkstra(graph, "A")
+
+-- Imprime distâncias
+for node, d in pairs(dist) do
+    print(string.format("Distância de A até %s: %d", node, d))
+end
