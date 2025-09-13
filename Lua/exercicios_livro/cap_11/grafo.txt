@@ -5,7 +5,9 @@
  Camaçari Canindé 2030 km
  Cascavel Uiramutã 3000 km
  Cascavel Altamira 2340 km
- Parnaíba Timon 630 km
+ Parnaiba Timon 630 km
  Belém Altamira 840 km
  Itapeva Belém 2620 km
  Timon Itapeva 2350 km
+ Parnaiba Timon 340 km
+ Timon Cascavel 2800 km
