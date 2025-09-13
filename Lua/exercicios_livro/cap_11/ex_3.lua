@@ -9,13 +9,14 @@ função readgraph para que ela leia, de cada linha do arquivo de entrada,
 doisnomes de nós mais um rótulo (assuma que o rótulo seja um número).
 
 --]]
+
 local filleName = "grafo.txt"
 
 local function name2node (graph, name)
 	local node = graph[name]
 	if not node then
 		-- nó não existe; cria um novo nó
-		node = {name = name, adj = {}}
+		node = {name = name, inc = {}}
 		graph[name] = node
 	end
 
@@ -26,12 +27,16 @@ function readgraph ()
 	local graph = {}
 	for line in io.lines(filleName) do
 		-- quebra a linha em dois nomes
-		local namefrom, nameto = string.match(line, "(%S+)%s+(%S+)")
+		local padrao = "(%S+)%s+(%S+)%s(%d+)"
+		local namefrom, nameto, rotulo = string.match(line, padrao)
 		-- encontra os nós correspondentes
 		local from = name2node(graph, namefrom)
 		local to = name2node(graph, nameto)
-		-- adiciona 'to' ao conjunto adjacente de 'from'
-		from.adj[to.name] = true
+		-- adiciona o arco no grafo e incidencias
+		local arc = {rot = tostring(rotulo), alv = to}
+		--graph.arc[rotulo] = arc
+		from.inc[arc.rot] = arc
+
 	end
 
 	return graph
@@ -39,9 +44,15 @@ end
 
 local graph = readgraph()
 for _, v in pairs(graph) do
-	io.write(v.name .. " ")
-	for k, _ in pairs(v.adj) do
-		io.write(k)
+	io.write(string.format(
+		"   %s%s" .. " ---> ", v.name, string.rep(" ", 12 - utf8.len(v.name))
+		))
+	for k, v2 in pairs(v.inc) do
+		if v2 then 
+			io.write(string.format(
+			" %s (%d)", v2.alv.name, k
+			)) 
+		end
 	end
 	io.write("\n")
 end
