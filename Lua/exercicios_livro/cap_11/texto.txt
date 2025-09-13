@@ -1,0 +1,37 @@
+Lua é uma linguagem de programação de extensão projetada para dar suporte à programação procedimental em geral com facilidades para a descrição de dados. Ela também oferece um bom suporte para programação orientada a objetos, programação funcional, e programação orientada a dados. Lua é planejada para ser usada como uma linguagem de script poderosa, leve, e embarcável por qualquer programa que necessite de uma. Lua é implementada como uma biblioteca, escrita em C puro, o subconjunto comum de C Padrão e C++.
+
+Por ser uma linguagem de extensão, Lua não possui a noção de um programa "principal": ela somente funciona embarcada em um cliente hospedeiro, chamado de programa embarcante ou simplesmente de hospedeiro. O programa hospedeiro pode invocar funções para executar um pedaço de código Lua, pode escrever e ler variáveis Lua, e pode registrar funções C para serem chamadas por código Lua. Através do uso de funções C, Lua pode ser aumentada para lidar com uma variedade ampla de domínios diferentes, criando assim linguagens de programação personalizadas que compartilham um arcabouço sintático. A distribuição Lua inclui um exemplo de um programa hospedeiro chamado lua, o qual usa a biblioteca Lua para oferecer um interpretador Lua de linha de comando completo, para uso interativo ou em lote.
+
+Lua é software livre, e é fornecido como de praxe sem garantias, como dito em sua licença. A implementação descrita neste manual está disponível no site oficial de Lua, www.lua.org.
+
+Como qualquer outro manual de referência, este documento é seco em algumas partes. Para uma discussão das decisões por trás do projeto de Lua, veja os artigos técnicos disponíveis no site de Lua. Para uma introdução detalhada à programação em Lua, veja o livro de Roberto Ierusalimschy, Programming in Lua).
+
+Lua é uma linguagem de programação leve, rápida e poderosa, criada no Brasil em 1993 por Roberto Ierusalimschy, Luiz Henrique de Figueiredo e Waldemar Celes. Seu nome, que significa "lua" em português, reflete sua origem brasileira e simplicidade elegante.
+
+Projetada para ser embutida em aplicações, Lua é amplamente usada em jogos, sistemas embarcados, scripts de configuração e automação. Sua sintaxe é limpa e minimalista, o que a torna fácil de aprender e rápida de escrever.
+
+Um dos maiores trunfos da linguagem Lua é sua capacidade de ser integrada a outras linguagens, especialmente C e C++. Isso permite que desenvolvedores adicionem scripts Lua a aplicações maiores, oferecendo flexibilidade sem sacrificar desempenho.
+
+Lua é famosa por seu uso em engines de jogos como Love2D, Roblox e World of Warcraft. Em Roblox, por exemplo, Lua é a linguagem principal para criar mundos, interações e mecânicas de jogo, permitindo que milhões de usuários desenvolvam experiências interativas.
+
+Além dos jogos, Lua é usada em softwares como Adobe Lightroom, Nginx e até em sistemas operacionais embarcados. Sua leveza permite que rode em dispositivos com recursos limitados, como microcontroladores e sistemas IoT.
+
+A linguagem possui um sistema de tipos dinâmico, com suporte a tabelas, funções de primeira classe e corrotinas. As tabelas são estruturas versáteis que funcionam como arrays, dicionários e objetos, tudo em uma só construção.
+
+Corrotinas são outro diferencial de Lua. Elas permitem programação assíncrona e concorrente de forma simples, sem a complexidade de threads ou callbacks. Isso é especialmente útil em jogos e sistemas reativos.
+
+Lua também é altamente extensível. É possível criar bibliotecas em C e expô-las para Lua, ou usar módulos escritos em Lua puro. O sistema de pacotes via LuaRocks facilita a distribuição e instalação de bibliotecas.
+
+A comunidade Lua é ativa e acolhedora, com fóruns, tutoriais e documentação bem organizada. Embora não seja tão popular quanto Python ou JavaScript, Lua tem uma base fiel de desenvolvedores que valorizam sua eficiência e elegância.
+
+Em termos de desempenho, Lua é surpreendentemente rápida. Sua implementação oficial, chamada PUC-Rio Lua, é escrita em ANSI C e otimizada para velocidade e portabilidade. Há também versões como LuaJIT, que oferecem desempenho ainda maior com compilação just-in-time.
+
+Lua é uma excelente escolha para quem busca uma linguagem simples, poderosa e fácil de integrar. Seja para criar jogos, automatizar tarefas, configurar sistemas ou explorar programação embarcada, Lua oferece uma base sólida e flexível.
+
+Seu design minimalista não significa limitação. Ao contrário, Lua incentiva boas práticas, modularidade e clareza de código. É uma linguagem que respeita o programador e oferece ferramentas eficazes para resolver problemas reais.
+
+Aprender Lua pode abrir portas para o desenvolvimento de jogos, scripts em softwares profissionais, ou até mesmo para contribuir com projetos open source. É uma linguagem que recompensa a curiosidade e a criatividade.
+
+Se você está começando na programação ou quer explorar algo novo, Lua é uma excelente opção. Com poucos recursos, você pode fazer muito. E com dedicação, pode ir ainda mais longe.
+
+Lua é como a própria lua no céu: discreta, mas essencial. Uma linguagem que brilha pela sua simplicidade e ilumina caminhos na programação moderna.
