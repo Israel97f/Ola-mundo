@@ -1,4 +1,7 @@
 {
     "Lua.telemetry.enable": false,
-    "cSpell.language": "en,pt-BR"
+    "cSpell.language": "en,pt-BR",
+    "Lua.diagnostics.disable": [
+        "lowercase-global"
+    ]
 }
