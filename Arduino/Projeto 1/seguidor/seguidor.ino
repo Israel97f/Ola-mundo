@@ -22,6 +22,9 @@ void setup() {
         if ((adcCon(0) >= 867) & (adcCon(2) >= 867)) {
             //pass
         }
+        if ((adcCon(0) >= 867) & (adcCon(2) >= 867)) {
+            //pass
+        }
     }
 }
 
@@ -79,17 +82,17 @@ void muve(char dir) {
 }
 
 int adcCon(char ch){
-	static int analogH, analogL, analog;
-  ADMUX =(ADMUX & 0xF8) | (ch & 0x07);
-  ADCSRA |= (1<<ADSC); 
-  while (!(ADCSRA & (1<<ADIF)));  // Aguarda a conversão terminar
-  ADCSRA |= (1<<ADIF);              // limpa a ADIF com trasição LOW para HIGH
-    
-  analogL = ADCL;
-  analogH = ADCH;
-    
-  analog = (analogH << 8) | analogL;
+    static int analogH, analogL, analog;
+    ADMUX =(ADMUX & 0xF8) | (ch & 0x07);
+    ADCSRA |= (1<<ADSC); 
+    while (!(ADCSRA & (1<<ADIF)));  // Aguarda a conversão terminar
+    ADCSRA |= (1<<ADIF);              // limpa a ADIF com trasição LOW para HIGH
 
-  return analog;
+    analogL = ADCL;
+    analogH = ADCH;
+
+    analog = (analogH << 8) | analogL;
+
+    return analog;
 
 }
