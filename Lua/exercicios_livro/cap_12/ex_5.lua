@@ -9,28 +9,27 @@ end
 
 function serialize (valor, ident)
     ident = ident or ""
+    local proxIdent = ident ..' '
     if type(valor) == "number" then
         io.write( valor, ",\n")
     elseif type(valor) == "string" then
         io.write(string.format("%q,\n", valor))
     elseif type(valor) == "table" then
-        ident = ident .. ident
-        io.write(string.format("%s{\n", string.sub(ident, 3)))
+        io.write(ident .. "{\n")
         for k, v in pairs(valor) do
+            io.write(proxIdent)
             if type(k) == "string" then
                 if validVarNome(k) then
-                    io.write(string.format("%s%s%s%s", ident, "  ", k , " = "))
+                    io.write(string.format("%s%s", k , " = "))
                 else
-                    io.write(string.format('%s%s["%s"]%s', ident, "  ", k , " = "))
+                    io.write(string.format('["%s"]%s', k , " = "))
                 end
             elseif type(k) == "number" then
-                io.write("  " .. ident)
+                --io.write("  " .. ident)
             end
-            serialize(v, "  ")
+            serialize(v, proxIdent)
         end
-        local vir = ""
-        if string.len(ident) > 0 then vir = "," end
-        io.write(string.format("%s}%s\n", string.sub(ident, 1), vir))
+        io.write(ident .. '},\n')
         
     end
 end
