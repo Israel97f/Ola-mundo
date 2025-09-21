@@ -1,0 +1,7 @@
+entrada {
+    autor = "manuel",
+    editora = "blauch",
+    ano = 1992,
+    paginas = 342,
+    capa = "premier"
+}
