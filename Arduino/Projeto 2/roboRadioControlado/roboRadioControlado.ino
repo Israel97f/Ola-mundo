@@ -5,7 +5,6 @@ void muve(int velo, char dir);
 bool est = 0;
 float periodo = 0;
 int freque = 0;
-long int tempoAnterio = 0;
 
 ISR (INT0_vect){ 
 	if(est){
@@ -21,7 +20,7 @@ ISR (INT0_vect){
 
 void setup(){
   //pinMode
-  DDRB = 0x2F;
+  DDRB = 0x37;
   PORTB |= (1 << 5);
 
   DDRD &= ~(1 << DDD2);  // entrada
@@ -58,10 +57,6 @@ void setup(){
       Serial.println(" Hz");
     }
 
-    if (millis() - tempoAnterio >= 300){
-      PORTB ^= (1 << DDB5);
-      tempoAnterio = millis();
-    }
       
     if ((adcCon(0) >= 867) & (adcCon(2) >= 867)) {
       if (1000000 / freque > 70 & 1000000 / freque <= 180){
@@ -79,8 +74,10 @@ void setup(){
       if (1000000 / freque > 660 & 1000000 / freque <= 880){
         muve(0, 'd');
       }
+      PORTB &= ~(1 << DDB5);
     }else {
       muve(10, 's');
+      PORTB |= (1 << DDB5);
     }
     delay(10);
   }
