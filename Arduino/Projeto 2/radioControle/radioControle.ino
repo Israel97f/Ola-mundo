@@ -54,22 +54,22 @@ int multiplier(int freq){
 void readButton (){
     
     if (!(PIND & (1 << DDD7))){
-     	mult = 50;
-    }
-
-    if (!(PIND & (1 << DDD6))){
      	mult = 25;
     }
 
+    if (!(PIND & (1 << DDD6))){
+     	mult = 17;
+    }
+
     if (!(PIND & (1 << DDD5))){
-      	mult = 16;
+      	mult = 10;
     }
 
     if (!(PIND & (1 << DDD4))){
-      	mult = 12;
+      	mult = 7;
     }
 
     if ((PIND & 0xF0) == 0xF0){
-     	mult = 100;
+     	mult = 50;
     }
 }
