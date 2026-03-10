@@ -61,8 +61,8 @@ void setup(){
     else if (micros() - instante >= 50000){
       Serial.println("Sem sinal!-");
     }else {
-      Serial.print(freque);
-      Serial.println(" Hz");
+      //Serial.print(freque);
+      //Serial.println(" Hz");
     }
 
       
@@ -73,7 +73,7 @@ void setup(){
       if (freque > 180 & freque <= 220){
         muve(0, 'a');
       }
-      if (freque > 220 & freque <= 440){
+      if (freque > 1200 & freque <= 1300){ // frequencia de ~294 Hz estava sofrendo muita interferencia, não sei porque.
         muve(0, 'b');
       }
       if (freque > 440 & freque <= 660){
@@ -139,7 +139,7 @@ void muve(int velo, char dir){
 	switch (dir){
     case 'a': 
       // Frente
-      if (primeraVez) {duty = ICR1 * 0.5; primeraVez = 0;} 
+      if (primeraVez) {duty = ICR1 * 0.75; primeraVez = 0;} 
       PORTB &= ~(1 << 4);
       //PORTB &= ~(1 << 2);
       //PORTB |= (1 << 1);
@@ -157,7 +157,7 @@ void muve(int velo, char dir){
       break;
     case 'c':
       // Direita
-      duty = ICR1 * 0.50;
+      duty = ICR1 * 0.75;
       PORTB &= ~(1 << 4);
       //PORTB &= ~(1 << 2);
       //PORTB &= ~(1 << 1);
@@ -165,7 +165,7 @@ void muve(int velo, char dir){
       break;
     case 'd':
       // Esquerda
-      duty = ICR1 * 0.50;
+      duty = ICR1 * 0.75;
       PORTB |= (1 << 4);
       //PORTB |= (1 << 2);
       //PORTB |= (1 << 1);

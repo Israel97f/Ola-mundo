@@ -53,23 +53,23 @@ int multiplier(int freq){
 
 void readButton (){
     
-    if (!(PIND & (1 << DDD7))){
+    if (!(PIND & (1 << DDD7))){  // 200 Hz
      	mult = 25;
     }
 
-    if (!(PIND & (1 << DDD6))){
-     	mult = 17;
+    if (!(PIND & (1 << DDD6))){ // 1250 Hz
+     	mult = 4;
     }
 
-    if (!(PIND & (1 << DDD5))){
+    if (!(PIND & (1 << DDD5))){ // 500 Hz
       	mult = 10;
     }
 
-    if (!(PIND & (1 << DDD4))){
+    if (!(PIND & (1 << DDD4))){ // ~ 714 Hz
       	mult = 7;
     }
 
-    if ((PIND & 0xF0) == 0xF0){
+    if ((PIND & 0xF0) == 0xF0){ // 100 Hz
      	mult = 50;
     }
 }
