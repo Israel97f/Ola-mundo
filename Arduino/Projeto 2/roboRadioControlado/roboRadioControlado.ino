@@ -67,19 +67,19 @@ void setup(){
 
       
     if ((adcCon(0) >= 867) & (adcCon(2) >= 867)) {
-      if (freque > 70 & freque <= 180){
+      if (freque > 80 & freque <= 120){
         muve(0, 's');
       }
       if (freque > 180 & freque <= 220){
         muve(0, 'a');
       }
-      if (freque > 1200 & freque <= 1300){ // frequencia de ~294 Hz estava sofrendo muita interferencia, não sei porque.
+      if (freque > 1230 & freque <= 1270){ // frequencia de ~294 Hz estava sofrendo muita interferencia, não sei porque.
         muve(0, 'b');
       }
-      if (freque > 440 & freque <= 660){
+      if (freque > 480 & freque <= 520){
         muve(0, 'c');
       }
-      if (freque > 660 & freque <= 880){
+      if (freque > 694 & freque <= 734){
         muve(0, 'd');
       }
       PORTB &= ~(1 << DDB5);
