@@ -1,0 +1,72 @@
+
+
+// ============================================================================
+// --- Prot�tipo das Fun��es ---
+void tx_func(char comand, char value);         //Fun��o para envio de dados tx
+void cmd_code();                               //Fun��o para codifica��o do comando enviado
+
+
+// ============================================================================
+// --- Vari�veis Globais ---
+char key = 0x00;
+
+
+// ============================================================================
+// --- Fun��o Principal ---
+void setup()
+{
+   Serial.begin(300);                           //inicializa UART1 com 300 baud rate
+   pinMode(10, INPUT);
+   pinMode(13, OUTPUT);
+   delay(100);                              //aguarda estabilizar
+     
+     
+   while(1)                                    //Loop Infinito
+   {
+      cmd_code();                              //codifica o comando
+      
+      //*/
+     if(!digitalRead(10))
+     { 
+       tx_func(key,1);
+       digitalWrite(13, 1);
+     }             //se RB0 em LOW, envia comando key e dado 1
+      else if(!1) tx_func(key,1);        //se RB1 em LOW, envia comando key e dado 1
+      else tx_func(key,0);                     //sen�o, envia comando key e dado 0
+      //*/
+        Serial.write('a');
+      digitalWrite(13, 0);
+
+
+
+
+   } //end while
+
+} //end main
+
+void loop(){}
+
+// ============================================================================
+// --- Fun��o para envio de dados tx ---
+void tx_func(char comand, char value)
+{
+
+   Serial.write(0xFF);                          //byte de start
+   delay(10);                               //aguarda
+   Serial.write(comand);                        //envia comando
+   delay(10);                               //aguarda
+   Serial.write(value);                         //envia valor do dado
+   delay(10);                               //aguarda
+   Serial.write(~(char)(comand+value));         //faz checksum
+   delay(10);
+   
+   
+} //end tx_func
+
+
+// ============================================================================
+// --- Fun��o para codifica��o do comando ---
+void cmd_code()
+{
+	key = 'g';
+} //end cmd_code
