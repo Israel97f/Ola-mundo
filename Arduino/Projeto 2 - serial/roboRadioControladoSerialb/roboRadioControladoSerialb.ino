@@ -90,6 +90,7 @@ void muve(int velo, char dir) {
     static bool primeraVez = 1;
     static int instanteAnterior = 0;
     static int duty = 0;
+    static int tempoParado = 0;
 
     Serial.println(duty);
     switch (dir) {
@@ -100,7 +101,7 @@ void muve(int velo, char dir) {
                 primeraVez = 0;
             }
             
-            duty >= ICR1 ? ICR1 : duty ++;
+            duty = (duty >= ICR1) ? ICR1 : duty + 1;
 
             OCR1A = duty;
             OCR1B = duty;
@@ -116,7 +117,7 @@ void muve(int velo, char dir) {
                 primeraVez = 0;
             }
             
-            duty <= 0 ? 0 : duty --;
+            duty = (duty >= ICR1) ? 0 : duty - 1;
 
             OCR1A = duty;
             OCR1B = duty;
@@ -148,10 +149,13 @@ void muve(int velo, char dir) {
             OCR1A = duty;
             OCR1B = duty;
 
-            if (millis() - instanteAnterior >= 500){
-                primeraVez = 1;
+            tempoParado = 0;
+            if (millis() - instanteAnterior >= 1){
+                tempoParado ++;
                 instanteAnterior = millis();
             }
+
+            primeraVez = (tempoParado >= 500) ?  1 : 0;
 
             break;
     }
