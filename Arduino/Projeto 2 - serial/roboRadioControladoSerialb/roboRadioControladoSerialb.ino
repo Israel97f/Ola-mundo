@@ -2,6 +2,8 @@
 String msg = " ";
 bool temSinal = false;
 
+bool primeraVez = 1;
+
 void muve(int velo, char dir);
 
 void setup() {
@@ -25,8 +27,8 @@ void setup() {
 }
 
 void loop() {
-    // Aqui o loop fica livre para só reagir à mensagem pronta
-    if (temSinal){
+    static unsigned long int vezAnterior[2] = {0, 0};
+    if (temSinal && (millis() - vezAnterior[0] > 30)){
         if (msg == "A1"){
             muve(0, 'a');
         }
@@ -39,10 +41,14 @@ void loop() {
         if (msg == "A4"){
             muve(0, 'd');
         }
-    } else {
+
+        vezAnterior[0] = millis();
+        vezAnterior[1] = millis();
+    } 
+    if (!temSinal && (millis() - vezAnterior[1] >= 100)) {
         muve(0, 's');
+        vezAnterior[1] = millis();
     }
-    delay(10);
 }
 
 // Essa função é chamada automaticamente quando chegam dados pela UART
@@ -87,12 +93,8 @@ void mirrorSignal() {
 
 // fução de movimento do carro
 void muve(int velo, char dir) {
-    static bool primeraVez = 1;
-    static int instanteAnterior = 0;
     static int duty = 0;
-    static int tempoParado = 0;
-
-    Serial.println(duty);
+    
     switch (dir) {
         case 'a':
             // Frente
@@ -113,11 +115,11 @@ void muve(int velo, char dir) {
         case 'b':
             // Ré
             if (primeraVez) {
-                duty = ICR1 * 0.65;
+                duty = ICR1 * 0.25;
                 primeraVez = 0;
             }
             
-            duty = (duty >= ICR1) ? 0 : duty - 1;
+            duty = (duty <= 0) ? 0 : duty - 1;
 
             OCR1A = duty;
             OCR1B = duty;
@@ -128,34 +130,29 @@ void muve(int velo, char dir) {
             break;
         case 'c':
             // Direita
-            OCR1A = ICR1 * 0.25;
-            OCR1B = ICR1 * 0.75;
+            OCR1A = ICR1 * 0.35;
+            OCR1B = ICR1 * 0.65;
             PORTB &= ~(1 << 4);
             PORTB |= (1 << 0);
             break;
         case 'd':
             // Esquerda
-            OCR1A = ICR1 * 0.75;
-            OCR1B = ICR1 * 0.25;
+            OCR1A = ICR1 * 0.65;
+            OCR1B = ICR1 * 0.35;
             PORTB |= (1 << 4);
             PORTB &= ~(1 << 0);
             break;
         case 's':
             // Parar
-            PORTB &= ~(1 << 4);
-            PORTB &= ~(1 << 0);
 
             duty = 0;
             OCR1A = duty;
             OCR1B = duty;
 
-            tempoParado = 0;
-            if (millis() - instanteAnterior >= 1){
-                tempoParado ++;
-                instanteAnterior = millis();
-            }
+            PORTB &= ~(1 << 4);
+            PORTB &= ~(1 << 0);
 
-            primeraVez = (tempoParado >= 500) ?  1 : 0;
+            primeraVez = 1;
 
             break;
     }

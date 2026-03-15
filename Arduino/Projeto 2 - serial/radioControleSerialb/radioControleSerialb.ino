@@ -30,7 +30,7 @@ void loop() {
         emviaMsg(comando);
         
     } else {
-        emviaMsg("A0");
+        //emviaMsg("A0");
         delay(100);
     }
     
