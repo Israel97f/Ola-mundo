@@ -93,20 +93,22 @@ void mirrorSignal() {
 
 // fução de movimento do carro
 void muve(int velo, char dir) {
-    static int duty = 0;
+    static float duty[2] = {0, 0};
     
     switch (dir) {
         case 'a':
             // Frente
             if (primeraVez) {
-                duty = ICR1 * 0.75;
+                duty[0] = ICR1 * 0.75;
+                duty[1] = ICR1 * 0.75;
                 primeraVez = 0;
             }
             
-            duty = (duty >= ICR1) ? ICR1 : duty + 1;
+            duty[0] = (duty[0] >= ICR1) ? ICR1 : duty[0] + 1;
+            duty[1] = (duty[1] >= ICR1) ? ICR1 : duty[1] + 1;
 
-            OCR1A = duty;
-            OCR1B = duty;
+            OCR1A = (int) duty[0];
+            OCR1B = (int) duty[1];
 
             PORTB &= ~(1 << 4);
             PORTB &= ~(1 << 0);
@@ -115,14 +117,16 @@ void muve(int velo, char dir) {
         case 'b':
             // Ré
             if (primeraVez) {
-                duty = ICR1 * 0.25;
+                duty[0] = ICR1 * 0.25;
+                duty[1] = ICR1 * 0.25;
                 primeraVez = 0;
             }
             
-            duty = (duty <= 0) ? 0 : duty - 1;
+            duty[0] = (duty[0] <= 0) ? 0 : duty[0] - 1;
+            duty[1] = (duty[1] <= 0) ? 0 : duty[1] - 1;
 
-            OCR1A = duty;
-            OCR1B = duty;
+            OCR1A = (int) duty[0];
+            OCR1B = (int) duty[1];
 
             PORTB |= (1 << 4);
             PORTB |= (1 << 0);
@@ -130,24 +134,25 @@ void muve(int velo, char dir) {
             break;
         case 'c':
             // Direita
-            OCR1A = ICR1 * 0.35;
-            OCR1B = ICR1 * 0.65;
+            OCR1A = (int) ICR1 * 0.55;
+            OCR1B = (int) ICR1 * 0.75;  // ajustado para os motores usados no progeto
             PORTB &= ~(1 << 4);
             PORTB |= (1 << 0);
             break;
         case 'd':
             // Esquerda
-            OCR1A = ICR1 * 0.65;
-            OCR1B = ICR1 * 0.35;
+            OCR1A = (int) ICR1 * 0.75;  // ajustado para os motores usados no progeto
+            OCR1B = (int) ICR1 * 0.55;
             PORTB |= (1 << 4);
             PORTB &= ~(1 << 0);
             break;
         case 's':
             // Parar
 
-            duty = 0;
-            OCR1A = duty;
-            OCR1B = duty;
+            duty[0] = 0;
+            duty[1] = 0;
+            OCR1A = duty[0];
+            OCR1B = duty[1];
 
             PORTB &= ~(1 << 4);
             PORTB &= ~(1 << 0);
