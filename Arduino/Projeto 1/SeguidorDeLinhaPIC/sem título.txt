@@ -1,0 +1,12 @@
+// Segidor de linha
+
+void main (){
+    
+    TRISB &= ~((1  << RB5) | (1 << RB4));    // Define RB5 e RB4 como saidas
+    PORTB &= ~((1  << RB5) | (1 << RB4)):   // Inicia em nivel baixo 
+
+    while(true){
+    
+    }
+
+}
