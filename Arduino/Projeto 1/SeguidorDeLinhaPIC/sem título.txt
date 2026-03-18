@@ -4,9 +4,25 @@ void main (){
     
     TRISB &= ~((1  << RB5) | (1 << RB4));    // Define RB5 e RB4 como saidas
     PORTB &= ~((1  << RB5) | (1 << RB4)):   // Inicia em nivel baixo 
+    
+    // ativa as portas analogicas
+    
+    ADCON0 = 0xC1;
+    ADCON1 = 0x80;
 
     while(true){
     
+    }
+    
+    
+    
+    unsigned int lerPortaAnalogica(int canal){
+        ADCON0 &= 0xC5;  // volta para o canal 0
+        ADCON0 |= (canal << 3); // seleciona o canal
+        GO = 1; //   inicia a comparação
+        while(Go){} //aguarda a comparação terminar
+        return (ADRESH << 8) + ADRESL
+        
     }
 
 }
