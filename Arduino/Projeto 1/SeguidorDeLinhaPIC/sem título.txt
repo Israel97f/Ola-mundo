@@ -27,7 +27,24 @@ void main () {
 }
 
 
-while(true) {}
+while(true) {
+    
+    if (lerPortaAnalogica() <= 000) {
+        CCPR1L = duty; // Duty cycle ~50%
+        CCP1CON |= ((duty >> 6) << 4) // coloca os 2 bits mais significativos do duty no bits 5 e 4
+    } else {
+        CCPR1L = duty; // Duty cycle ~50%
+        CCP1CON |= ((duty >> 6) << 4) // coloca os 2 bits mais significativos do duty no bits 5 e 4
+    }
+    
+    if (lerPortaAnalogica() <= 000) {
+        CCPR2L = duty; // Duty cycle ~50%
+        CCP2CON |= ((duty >> 6) << 4) // coloca os 2 bits mais significativos do duty no bits 5 e 4
+    } else {
+        CCPR2L = duty; // Duty cycle ~50%
+        CCP2CON |= ((duty >> 6) << 4) // coloca os 2 bits mais significativos do duty no bits 5 e 4
+    }
+}
 
 
 
