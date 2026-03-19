@@ -1,5 +1,5 @@
 // Segidor de linha
-unsigned int duty = 512;
+unsigned int duty[2] = {512, 512};
 void main () {
 
     TRISB &= ~((1 << RB5) | (1 << RB4)); // Define RB5 e RB4 como saidas
@@ -29,20 +29,24 @@ void main () {
 
 while(true) {
     
-    if (lerPortaAnalogica() <= 000) {
-        CCPR1L = duty; // Duty cycle ~50%
-        CCP1CON |= ((duty >> 6) << 4) // coloca os 2 bits mais significativos do duty no bits 5 e 4
+    if (lerPortaAnalogica() <= 900) {
+        duty[0] = 768;
+        CCPR1L = duty[0]; // Duty cycle ~50%
+        CCP1CON |= ((duty[0] >> 6) << 4) // coloca os 2 bits mais significativos do duty no bits 5 e 4
     } else {
-        CCPR1L = duty; // Duty cycle ~50%
-        CCP1CON |= ((duty >> 6) << 4) // coloca os 2 bits mais significativos do duty no bits 5 e 4
+        duty[0] = 512;
+        CCPR1L = duty[0]; // Duty cycle ~50%
+        CCP1CON |= ((duty[0] >> 6) << 4) // coloca os 2 bits mais significativos do duty no bits 5 e 4
     }
     
-    if (lerPortaAnalogica() <= 000) {
-        CCPR2L = duty; // Duty cycle ~50%
-        CCP2CON |= ((duty >> 6) << 4) // coloca os 2 bits mais significativos do duty no bits 5 e 4
+    if (lerPortaAnalogica() <= 900) {
+        duty[1] = 768;
+        CCPR2L = duty[1]; // Duty cycle ~50%
+        CCP2CON |= ((duty[1] >> 6) << 4) // coloca os 2 bits mais significativos do duty no bits 5 e 4
     } else {
-        CCPR2L = duty; // Duty cycle ~50%
-        CCP2CON |= ((duty >> 6) << 4) // coloca os 2 bits mais significativos do duty no bits 5 e 4
+        duty[0] = 512;
+        CCPR2L = duty[1]; // Duty cycle ~50%
+        CCP2CON |= ((duty[1] >> 6) << 4) // coloca os 2 bits mais significativos do duty no bits 5 e 4
     }
 }
 
