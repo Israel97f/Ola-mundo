@@ -1,0 +1,59 @@
+// Segidor de linha
+unsigned int duty = 512;
+void main () {
+
+    TRISB &= ~((1 << RB5) | (1 << RB4)); // Define RB5 e RB4 como saidas
+    PORTB &= ~((1 << RB5) | (1 << RB4)): // Inicia em nivel baixo
+
+    TRISC = 0x00; // Configura porta C
+
+    // ativa as portas analogicas
+
+    ADCON0 = 0xC1;
+    ADCON1 = 0x80;
+
+    // ativa o pwm nas portas RC1 e RC2
+    CCP1CON = 0x0C // seleciona o modo pwm
+    CCP2CON = 0x0C // seleciona o modo pwm
+    
+    PR2 = 255; // Define período do PWM
+    T2CON = 0x05; // Liga Timer2 com 4 de prescale
+    CCPR1L = duty; // Duty cycle ~50%
+    CCP1CON |= ((duty >> 6) << 4) // coloca os 2 bits mais significativos do duty no bits 5 e 4
+    
+    CCPR2L = duty; // Duty cycle ~50%
+    CCP2CON |= ((duty >> 6) << 4) // coloca os 2 bits mais significativos do duty no bits 5 e 4
+
+}
+
+
+while(true) {
+    
+    if (lerPortaAnalogica() <= 000) {
+        CCPR1L = duty; // Duty cycle ~50%
+        CCP1CON |= ((duty >> 6) << 4) // coloca os 2 bits mais significativos do duty no bits 5 e 4
+    } else {
+        CCPR1L = duty; // Duty cycle ~50%
+        CCP1CON |= ((duty >> 6) << 4) // coloca os 2 bits mais significativos do duty no bits 5 e 4
+    }
+    
+    if (lerPortaAnalogica() <= 000) {
+        CCPR2L = duty; // Duty cycle ~50%
+        CCP2CON |= ((duty >> 6) << 4) // coloca os 2 bits mais significativos do duty no bits 5 e 4
+    } else {
+        CCPR2L = duty; // Duty cycle ~50%
+        CCP2CON |= ((duty >> 6) << 4) // coloca os 2 bits mais significativos do duty no bits 5 e 4
+    }
+}
+
+
+
+unsigned int lerPortaAnalogica(int canal) {
+    ADCON0 &= 0xC5; // volta para o canal 0
+    ADCON0 |= (canal << 3); // seleciona o canal
+    __delay_ms(2);
+    GO = 1; //   inicia a comparação
+    while(Go) {} //aguarda a comparação terminar
+    return (ADRESH << 8) + ADRESL
+
+}
